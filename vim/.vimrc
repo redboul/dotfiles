@@ -91,3 +91,7 @@ highlight LineNr term=bold cterm=NONE ctermfg=93 ctermbg=NONE gui=NONE guifg=#87
 
 syntax enable
 colorscheme monokai
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn))|target|node_modules|node|bower_components$',
+  \ 'file': '\v\.(so)$'
+  \ }
