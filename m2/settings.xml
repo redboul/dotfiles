@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd"
+  xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!--   <mirrors> -->
+  <!--     <mirror> -->
+  <!--       <id>bonita-internal-mirror</id> -->
+  <!--       <name>Maven Repository Manager running on repositories.rd.lan</name> -->
+  <!--       <url>http://repositories.rd.lan/maven/releases</url> -->
+  <!--       <mirrorOf>*,!internal.snapshots</mirrorOf> -->
+  <!--     </mirror> -->
+  <!--     <mirror> -->
+  <!--       <id>bonita-snapshots-mirror</id> -->
+  <!--       <name>Maven Repository Manager running on repositories.rd.lan</name> -->
+  <!--       <url>http://repositories.rd.lan/maven/snapshots</url> -->
+  <!--       <mirrorOf>internal.snapshots</mirrorOf> -->
+  <!--     </mirror> -->
+  <!--   </mirrors> -->
+
+  <profiles>
+
+    <!-- Bonita releases -->
+    <profile>
+      <id>bonita-releases</id>
+      <repositories>
+        <repository>
+          <id>Mulesoft</id>
+          <name>Mulesoft</name>
+          <releases>
+            <enabled>false</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+          </snapshots>
+          <url>https://repository-master.mulesoft.org/nexus/content/groups/public/</url>
+          <layout>default</layout>
+        </repository>
+        <repository>
+          <id>ApacheRelease</id>
+          <name>Apache Release</name>
+          <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+            <checksumPolicy>warn</checksumPolicy>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>never</updatePolicy>
+            <checksumPolicy>fail</checksumPolicy>
+          </snapshots>
+          <url>http://central.maven.org/maven2/</url>
+          <layout>default</layout>
+        </repository>
+        <repository>
+          <id>internal.releases</id>
+          <name>Bonita Internal Release Repository</name>
+          <url>http://repositories.rd.lan/maven/releases/</url>
+          <releases>
+            <enabled>true</enabled>
+            <checksumPolicy>warn</checksumPolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>internal.releases</id>
+          <name>Bonita Internal Release Repository</name>
+          <url>http://repositories.rd.lan/maven/releases/</url>
+          <releases>
+            <enabled>true</enabled>
+            <checksumPolicy>warn</checksumPolicy>
+          </releases>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Ready to release -->
+    <profile>
+      <id>bonita-ready</id>
+      <repositories>
+        <repository>
+          <id>internal.snapshots</id>
+          <name>Bonita internal master snapshots</name>
+          <url>http://repositories.rd.lan/maven/snapshots/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>internal.snapshots</id>
+          <name>Bonita internal master snapshots</name>
+          <url>http://repositories.rd.lan/maven/snapshots/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Maintenance -->
+    <profile>
+      <id>bonita-maintenance</id>
+      <repositories>
+        <repository>
+          <id>maintenance.snapshots</id>
+          <name>Maintenance snapshots repository</name>
+          <url>http://maintenance.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>maintenance.snapshots</id>
+          <name>Maintenance snapshots repository</name>
+          <url>http://maintenance.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Fast Track -->
+    <profile>
+      <id>bonita-fast1</id>
+      <repositories>
+        <repository>
+          <id>fast1.snapshots</id>
+          <name>Fast Track team snapshot repository</name>
+          <url>http://repositories.rd.lan/maven/fast1.snapshots/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>fast1.snapshots</id>
+          <name>Fast Track team snapshot repository</name>
+          <url>http://repositories.rd.lan/maven/fast1.snapshots/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Fast Track -->
+    <profile>
+      <id>bonita-fast2</id>
+      <repositories>
+        <repository>
+          <id>fast2.snapshots</id>
+          <name>Fast Track team snapshot repository</name>
+          <url>http://fast2.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>fast2.snapshots</id>
+          <name>Fast Track team snapshot repository</name>
+          <url>http://fast2.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Castor -->
+    <profile>
+      <id>bonita-castor</id>
+      <repositories>
+        <repository>
+          <id>castor.snapshots</id>
+          <name>Castor team snapshot repository</name>
+          <url>http://castor.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>castor.snapshots</id>
+          <name>Castor team snapshot repository</name>
+          <url>http://castor.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Castor 2 -->
+    <profile>
+      <id>bonita-castor2</id>
+      <repositories>
+        <repository>
+          <id>castor2.snapshots</id>
+          <name>Castor team snapshot repository</name>
+          <url>http://castor2.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>castor2.snapshots</id>
+          <name>Castor team snapshot repository</name>
+          <url>http://castor2.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Pollux1 -->
+    <profile>
+      <id>bonita-pollux1</id>
+      <repositories>
+        <repository>
+          <id>pollux.snapshots</id>
+          <name>Pollux team snapshot repository</name>
+          <url>http://pollux1.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>pollux.snapshots</id>
+          <name>Pollux team snapshot repository</name>
+          <url>http://pollux1.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>Nexus Codehaus</id>
+          <url>http://nexus.codehaus.org/snapshots/</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Pollux2 -->
+    <profile>
+      <id>bonita-pollux2</id>
+      <repositories>
+        <repository>
+          <id>pollux.snapshots</id>
+          <name>Pollux team snapshot repository</name>
+          <url>http://pollux2.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>pollux.snapshots</id>
+          <name>Pollux team snapshot repository</name>
+          <url>http://pollux2.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>Nexus Codehaus</id>
+          <url>http://nexus.codehaus.org/snapshots/</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Pollux3 -->
+    <profile>
+      <id>bonita-pollux3</id>
+      <repositories>
+        <repository>
+          <id>pollux.snapshots</id>
+          <name>Pollux team snapshot repository</name>
+          <url>http://pollux3.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>pollux.snapshots</id>
+          <name>Pollux team snapshot repository</name>
+          <url>http://pollux3.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+          <id>Nexus Codehaus</id>
+          <url>http://nexus.codehaus.org/snapshots/</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+
+    <!-- Innovation -->
+    <profile>
+      <id>bonita-inno</id>
+      <repositories>
+        <repository>
+          <id>inno.snapshots</id>
+          <name>Innovation team snapshot repository</name>
+          <url>http://inno1.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>inno.snapshots</id>
+          <name>Innovation team snapshot repository</name>
+          <url>http://inno1.rd.lan/userContent/m2_repo/</url>
+          <releases>
+            <enabled>false</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+
+  <activeProfiles>
+    <activeProfile>bonita-releases</activeProfile>
+    <!--activeProfile>bonita-ready</activeProfile-->
+    <!--activeProfile>bonita-maintenance</activeProfile-->
+    <activeProfile>bonita-fast1</activeProfile>
+    <!--activeProfile>bonita-fast2</activeProfile -->
+    <!--activeProfile>bonita-castor</activeProfile-->
+    <!-- <activeProfile>bonita-castor2</activeProfile> -->
+    <!--activeProfile>bonita-pollux1</activeProfile-->
+    <!--activeProfile>bonita-pollux2</activeProfile-->
+    <!--activeProfile>bonita-pollux3</activeProfile-->
+    <!--activeProfile>bonita-inno</activeProfile-->
+  </activeProfiles>
+
+</settings>
