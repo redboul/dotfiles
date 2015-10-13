@@ -24,6 +24,14 @@ nnoremap <C-H> <C-W><C-H> "Ctrl-h to move left a split
 nnoremap <silent> <A-Left> :tabprevious<CR>
 nnoremap <silent> <A-Right> :tabnext<CR>
 nnoremap <silent> <A-Up> :tabnew<CR>
+nnoremap <silent> <A-h> :tabprevious<CR>
+nnoremap <silent> <A-l> :tabnext<CR>
+nnoremap <silent> <A-k> :tabnew<CR>
+
+" Use CTRL-S for saving, also in Insert mode
+noremap <C-S> :update<CR>
+vnoremap <C-S> <C-C>:update<CR>
+inoremap <C-S> <C-O>:update<CR>
 
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
@@ -70,6 +78,7 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+let g:ctrlp_max_files=20000
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
