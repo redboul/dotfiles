@@ -16,11 +16,6 @@ set laststatus=2
 set t_Co=256
 " set mouse=a
 
-nnoremap <C-J> <C-W><C-J> "Ctrl-j to move down a split  
-nnoremap <C-K> <C-W><C-K> "Ctrl-k to move up a split  
-nnoremap <C-L> <C-W><C-L> "Ctrl-l to move    right a split  
-nnoremap <C-H> <C-W><C-H> "Ctrl-h to move left a split  
-
 nnoremap <silent> <A-Left> :tabprevious<CR>
 nnoremap <silent> <A-Right> :tabnext<CR>
 nnoremap <silent> <A-Up> :tabnew<CR>
@@ -43,7 +38,7 @@ Plugin 'sickill/monokai'
 Plugin 'scrooloose/nerdtree'
 
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'mileszs/ack.vim'
+Plugin 'rking/ag.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'syntastic'
 Plugin 'ctrlp.vim'
@@ -57,9 +52,14 @@ Plugin 'bling/vim-airline'
 Plugin 'ervandew/supertab'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
+Plugin 'marcweber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-surround'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'pangloss/vim-javascript'
+Plugin 'groenewege/vim-less'
 
 
 " All of your Plugins must be added before the following line
@@ -83,6 +83,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['jshint']
 let loaded_delimitMate = 1
 
 " make YCM compatible with UltiSnips (using supertab)
@@ -104,3 +105,13 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/](\.(git|hg|svn))|target|node_modules|node|bower_components$',
   \ 'file': '\v\.(so)$'
   \ }
+
+
+"Tern
+let g:tern_map_keys=1
+let g:tern_show_argument_hints='on_hold'
+
+"SnipMate
+"to prevent clash with youcompleteme, change snippet trigger
+imap <C-J> <esc>a<Plug>snipMateNextOrTrigger
+smap <C-J> <Plug>snipMateNextOrTrigger
