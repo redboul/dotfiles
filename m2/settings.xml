@@ -55,7 +55,7 @@
           <url>http://central.maven.org/maven2/</url>
           <layout>default</layout>
         </repository>
-        <repository>
+        <!--repository>
           <id>internal.releases</id>
           <name>Bonita Internal Release Repository</name>
           <url>http://repositories.rd.lan/maven/releases/</url>
@@ -66,9 +66,9 @@
           <snapshots>
             <enabled>false</enabled>
           </snapshots>
-        </repository>
+        </repository-->
       </repositories>
-      <pluginRepositories>
+      <!--pluginRepositories>
         <pluginRepository>
           <id>internal.releases</id>
           <name>Bonita Internal Release Repository</name>
@@ -81,7 +81,7 @@
             <enabled>false</enabled>
           </snapshots>
         </pluginRepository>
-      </pluginRepositories>
+      </pluginRepositories-->
     </profile>
 
     <!-- Ready to release -->
@@ -420,7 +420,7 @@
     <activeProfile>bonita-releases</activeProfile>
     <!--activeProfile>bonita-ready</activeProfile-->
     <!--activeProfile>bonita-maintenance</activeProfile-->
-    <activeProfile>bonita-fast1</activeProfile>
+    <!--activeProfile>bonita-fast1</activeProfile-->
     <!--activeProfile>bonita-fast2</activeProfile -->
     <!--activeProfile>bonita-castor</activeProfile-->
     <!-- <activeProfile>bonita-castor2</activeProfile> -->
